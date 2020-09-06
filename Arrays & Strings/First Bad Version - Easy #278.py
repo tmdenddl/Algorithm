@@ -5,30 +5,30 @@ Find the first bad version of the array
 
 Note: If a version is bad, all versions after it are bad
 """
+class Solution:
+    def firstBadVersion(self, n):
+        """
+        :type n: int
+        :rtype : int
+        """
 
-def firstBadVersion(self, n):
-    """
-    :type n: int
-    :rtype : int
-    """
+        left = 1
+        right = not
+        while (left < right):
+            mid = (right + left) // 2
 
-    left = 1
-    right = not
-    while (left < right):
-        mid = (right + left) // 2
+            if (not isBadVersion(mid)):
+                left = mid + 1
+            else:
+                right = mid
 
-        if (not isBadVersion(mid)):
-            left = mid + 1
-        else:
-            right = mid
+        return left
 
-    return left
-
-def isBadVersion(n) -> bool:
-    """
-    This should be a function that returns whether the current version n is a bad version or not
-    """
-    return True
+    def isBadVersion(n) -> bool:
+        """
+        This should be a function that returns whether the current version n is a bad version or not
+        """
+        return True
 
 
 """
