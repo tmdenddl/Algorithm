@@ -1,4 +1,6 @@
 """
+Valid Mountain Array - Easy #941
+
 Given an array of integers, return true if the following conditions are fulfilled:
     - Lenght of the array is bigger than or equal to 3
     - There exist some index i such that:

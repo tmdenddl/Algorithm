@@ -1,4 +1,6 @@
 """
+Boats to Save People - Medium #881
+
 You are trying to add people in safety boats
 
 Given an array called 'people' and integer 'limit',

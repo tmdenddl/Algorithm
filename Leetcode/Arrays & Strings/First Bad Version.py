@@ -1,4 +1,6 @@
 """
+First Bad Version - Easy #278
+
 Give a number N that represent amount of version and a function that 
 accpets a number and returns whether it's a bad version or not.
 Find the first bad version of the array
