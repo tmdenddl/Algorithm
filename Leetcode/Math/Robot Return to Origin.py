@@ -21,7 +21,7 @@ UD => (0, 1-1) = (0, 0)
 """
 
 class Solution:
-    def judgeCircle(self, moves: str) => bool:
+    def judgeCircle(self, moves: str) -> bool:
         x = 0
         y = 0
 
