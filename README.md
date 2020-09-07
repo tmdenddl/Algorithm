@@ -1,2 +1,4 @@
 # Algorithm
-Personal exercises on Algorithms
+Personal exercises on Data Structures & Algorithms
+
+Solved some of the Leetcode Questions from Easy to Hard Level
