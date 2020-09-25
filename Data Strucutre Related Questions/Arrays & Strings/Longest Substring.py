@@ -21,7 +21,7 @@ class Solution:
             
             # If the element is already in the map
             if (element in map):
-                # Set the add 1 to the current start of the substring
+                # Set left to bigger index between current left and the next index of where the current element was foud last 
                 left = max(left, map[element] + 1)
             # Set the character's new position
             map[element] = right
