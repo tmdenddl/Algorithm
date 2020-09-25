@@ -1,5 +1,5 @@
 class QueueLine:
-	def __init__(self):
+    def __init__(self):
         self.q = []
     
     def enqueue(self, x: int) -> None:
