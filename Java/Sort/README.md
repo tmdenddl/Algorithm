@@ -110,9 +110,25 @@ Although splitting phase is logical, since merging phase is not, Merge Sort is N
 It's got O(n*logn) time complexity. It's also a stable algorithm. 
 
 ### Quick Sort
+Quick Sort is another Divide and Conquer algorithm. It also uses recursive algorithm like Merge Sort.
+This time pivot element to partition the array into two parts is used.
 
+1. Elements that are smaller than the pivot should be shifted to left of the pivot.
+2. Likewise, elements that are larger than the pivot should be shifted to the right of the pivot.
+    Note that at this moment, left and right sub-arrays are not necessarily sorted.
+3. Pivot will then be shifted to its correct sorted position at the end.
+4. Step 1 - 3 are now repeated for the left array and right array.
+5. Eventually, every element has been the pivot, so every element will be in its correct sorted position.
+
+As with Merge Sort, we'll end up partitioning the array into a series of 1-element arrays
+
+Quick Sort uses logical parition, thus it's in-place algorithm.
+It's got O(n*logn) time complexity. It's also an unstable algorithm. 
 
 ### Counting Sort
+THIS IS TO BE DONE WHEN THE TIME IS ALLOWED
+
+### Stable Counting Sort
 THIS IS TO BE DONE WHEN THE TIME IS ALLOWED
 
 ### Radix Sort
