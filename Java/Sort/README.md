@@ -60,3 +60,60 @@ Insertion Sort is also an in-place algorithm.
 It's got O(n^2) time complexity - quadratic.
 It's also a stable algorithm.
 
+### Shell Sort
+Shell Sort is a variation of the Insertion Sort.
+Insertion sort chooses which element to insert using a gap of 1. 
+However, Shell sort starts out using a larger gap value.
+At every iterations, the array becomes more sorted. Then gap is decremented to reduce the amount of shifting required.
+
+We'll base our gap on the array's length. We'll initialize the gap (or interval) to array.length/2.
+On each iteration, we'll divide the gap value by 2 to get the next gap value, until reaching 1.
+
+1. Compare the first element (newElement) with the element at 3 indexes away which is the initial value of the gap.
+2. Swap if the newElement is bigger than the element we're comparing to.
+3. Increment 
+3. Then we go to the second element which becomes the newElement, then repeat what's done at step 1 - 2.
+    Compare the elements at 3 indexes away.
+
+
+Shell Sort is an in-place algorithm, meaning it doesn't require any extra memory.
+It's got O(n^2) time complexity - quadratic.
+It is an unstable algorithm.
+
+### Merge Sort
+Merge Sort is a Divide and Conquer algorithm. It uses recursive algorithm.
+There are two phases: splitting and merging.
+Splitting phase leads to a faster sorting during the Merging phase.
+Merging phase basically merges the splitted arrays in a sorted manner.
+
+Splitting is logical. We don't create new arrays. 
+However, during Merging phase, we need temporary arrays.
+
+Splitting Phase:
+1. Start with an unsorted array.
+2. Divide the array into two arrays, which are unsorted.
+    The first array is the left array, and the second array is the right array.
+3. Split the each left and right arrays into two arrays.
+4. Keep splitting until all the arrays have only one element each - these arrays are sorted.
+
+Merging Phase:
+1. Merge every left/right pair of sibling arrays in a sorted manner into a sorted array.
+    Note that we're copying into a temporary array. Travsering is done using index pointers on each array.
+    Copy the smaller element to the temporary array, until both left/right arrays reach the end.
+2. After the first merge, we'll have a bunch of 2-element sorted arrays.
+3. Then merge those sorted arrays (left/right siblings) to end up with 
+    a bunch of 4-element sorted arrays.
+4. Repeat until you have a single sorted array.
+5. Not in-place. Merging phase requires temporary arrays.
+
+Although splitting phase is logical, since merging phase is not, Merge Sort is NOT an in-place algorithm.
+It's got O(n*logn) time complexity. It's also a stable algorithm. 
+
+### Quick Sort
+
+
+### Counting Sort
+THIS IS TO BE DONE WHEN THE TIME IS ALLOWED
+
+### Radix Sort
+THIS IS TO BE DONE WHEN THE TIME IS ALLOWED
