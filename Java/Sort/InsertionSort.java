@@ -33,7 +33,7 @@ public class InsertionSort {
         array[j] = temp;
     }
 
-    public static void insertionSort(int[] array) {
+    public static void insertionSortInterative(int[] array) {
         // We're iterating through the array from left to right until reaching the end
         for (int firstUnsortedIndex = 1; firstUnsortedIndex < array.length; firstUnsortedIndex++) {
             // Save the value of the first element at unsorted partition which is to be placed into sorted partition. 
@@ -53,13 +53,46 @@ public class InsertionSort {
         }
     }
 
+    public static void insertionSortRecursive(int[] array, int numItems) {
+        // Base Case: If we have 0 or 1 item, the array is sorted
+        if (numItems < 2) {
+            return;
+        }
+
+        // Sort one less element in each recursion
+        insertionSortRecursive(array, numItems - 1);
+
+        int newElement = array[numItems - 1];
+
+        int i;
+        // Traverse through unsorted partition starting from the first element until the first element's index becomes 0.
+        // If insertion position is 0, the element is the smallest element in the sorted partition.
+        // We want to keep traversing as long as the element we're trying to insert in the sorted partition is greater than
+        // the one we currently have the pointer at (index i). If the element we have is greater than the element in the sorted partition,
+        // we've found the correct index for the elemen in the sorted partition.
+        // Basically we're traversing down the sorted partition - from the largest to the smallest, and 
+        for (i = numItems - 1; i > 0 && array[i - 1] > newElement; i--) {
+            array[i] = array[i - 1];
+        }
+        array[i] = newElement;
+
+    }
+
     public static void main(String[] args) {
-        int[] intArray = {20, 35, -15, 7, 55, 1, -22};
+        int[] intArray1 = {20, 35, -15, 7, 55, 1, -22};
+        int[] intArray2 = {20, 35, -15, 7, 55, 1, -22};
 
-        insertionSort(intArray);
+        insertionSortInterative(intArray1);
+        insertionSortRecursive(intArray2, intArray2.length);
 
-        for (int i = 0; i < intArray.length; i++) {
-            System.out.println("intArray[i]: " + intArray[i]);
+        for (int i = 0; i < intArray1.length; i++) {
+            System.out.println("intArray1[i]: " + intArray1[i]);
+        }
+
+        System.out.println("");
+
+        for (int i = 0; i < intArray2.length; i++) {
+            System.out.println("intArray2[i]: " + intArray2[i]);
         }
     }
 }
