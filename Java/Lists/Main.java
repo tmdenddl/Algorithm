@@ -58,5 +58,9 @@ public class Main {
         System.out.println("This is the Singly Linked List of the current Employee");
         singlyLinkedList.printList();
 
+        singlyLinkedList.removeFromFront();
+        System.out.println("This is the Singly Linked List of the current Employee");
+        singlyLinkedList.printList();
+
     }
 }
