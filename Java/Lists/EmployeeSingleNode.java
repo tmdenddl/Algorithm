@@ -1,10 +1,10 @@
 package Java.Lists;
 
-public class EmployeeNode {
+public class EmployeeSingleNode {
     private Employee employee;
-    private EmployeeNode next;
+    private EmployeeSingleNode next;
 
-    public EmployeeNode(Employee employee) {
+    public EmployeeSingleNode(Employee employee) {
         this.employee = employee;
     }
 
@@ -16,11 +16,11 @@ public class EmployeeNode {
         this.employee = employee;
     }
 
-    public EmployeeNode getNext() {
+    public EmployeeSingleNode getNext() {
         return next;
     }
 
-    public void setNext(EmployeeNode next) {
+    public void setNext(EmployeeSingleNode next) {
         this.next = next;
     }
 

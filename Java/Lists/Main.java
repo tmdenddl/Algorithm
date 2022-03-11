@@ -45,10 +45,12 @@ public class Main {
         for (Employee employee: employeeArray) {
             System.out.print(employee + ", ");
         }
+        System.out.println("");
 
         /*
          * This section is for the Singly LinkedList
          */
+        System.out.println("This section is for the Singly LinkedList");
         EmployeeSinglyLinkedList singlyLinkedList = new EmployeeSinglyLinkedList();
         singlyLinkedList.addToFront(janesJones);
         singlyLinkedList.addToFront(johnDoe);
@@ -62,5 +64,28 @@ public class Main {
         System.out.println("This is the Singly Linked List of the current Employee");
         singlyLinkedList.printList();
 
+        System.out.println("");
+
+        /*
+         * This section is for the Doubly LinkedList
+         */
+        System.out.println("This section is for the Doubly LinkedList");
+        EmployeeDoublyLinkedList doublyLinkedList = new EmployeeDoublyLinkedList();
+        doublyLinkedList.addToFront(janesJones);
+        doublyLinkedList.addToFront(johnDoe);
+        doublyLinkedList.addToFront(marrySmith);
+        doublyLinkedList.addToFront(mikeWilson);
+
+        System.out.println("This is the Doubly Linked List of the current Employee");
+        doublyLinkedList.printList();
+
+        doublyLinkedList.removeFromFront();
+        doublyLinkedList.removeFromEnd();
+        System.out.println("This is the Doubly Linked List of the current Employee");
+        doublyLinkedList.printList();
+
+        doublyLinkedList.addToEnd(janesJones);
+        System.out.println("This is the Doubly Linked List of the current Employee");
+        doublyLinkedList.printList();
     }
 }

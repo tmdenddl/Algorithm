@@ -38,4 +38,5 @@ Unlike an Array, ArrayList is a resizable array implementation of the List inter
 - The last item in the list is the tail of the list. The last node will always point to null.
 - Insert will have O(1) time complexity as we simply make the head pointer to the new node.
 - Likewise, Remove will also have O(1) time complexity as it's a simple pointer reassignment.
+- However, retrieving the desired node will need traversal thus have time complexity of O(n).
 

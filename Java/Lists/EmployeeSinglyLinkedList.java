@@ -1,23 +1,22 @@
 package Java.Lists;
 
 public class EmployeeSinglyLinkedList {
-    private EmployeeNode head;
+    private EmployeeSingleNode head;
     private int size;
 
     public void addToFront(Employee employee) {
-        EmployeeNode node = new EmployeeNode(employee);
-
+        EmployeeSingleNode node = new EmployeeSingleNode(employee);
         node.setNext(head);
         head = node;
         size++;
     }
 
-    public EmployeeNode removeFromFront() {
+    public EmployeeSingleNode removeFromFront() {
         if (isEmpty()) {
             return null;
         }
 
-        EmployeeNode removedNode = head;
+        EmployeeSingleNode removedNode = head;
         head = head.getNext();
         size--;
         removedNode.setNext(null);
@@ -34,7 +33,7 @@ public class EmployeeSinglyLinkedList {
     }
 
     public void printList() {
-        EmployeeNode current = head;
+        EmployeeSingleNode current = head;
         System.out.print("HEAD -> ");
 
         while (current != null) {
@@ -44,8 +43,4 @@ public class EmployeeSinglyLinkedList {
         }
         System.out.println("null");
     }
-
-
-
-
 }
