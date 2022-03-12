@@ -3,7 +3,7 @@
 ### Stack
 - Abstract data type
 - Follows LIFO principle - Last In First Out. Think of a stack of dishes.
-- Has the following methods:
+- Has the following operations:
   - push: adds an item as the top item on the stack
   - pop: removes the top item on the stack
   - peek: gets the top item on the stack without popping(removing) it
