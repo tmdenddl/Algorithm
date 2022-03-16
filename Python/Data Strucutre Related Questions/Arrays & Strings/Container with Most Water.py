@@ -11,6 +11,9 @@ Find two lines, which together with x-axis forms a container, such that the cont
 Real question:
 Find the maximum difference between x position multiplied by the height
 """
+
+from typing import List
+
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         # Initialize variables
@@ -34,14 +37,11 @@ class Solution:
 
         return maxArea
 
-
-
-
-
-
-
-
 """
 Time Complexity : O(n)
 Space Complexity: O(1)
 """
+
+s = Solution()
+answer = s.maxArea([5, 9, 2, 4, 3, 7])
+print(answer)

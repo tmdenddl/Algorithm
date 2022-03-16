@@ -13,6 +13,8 @@ Given that their weight sum is at most limit
 Return the minimum number of boats to carry every given person
 """
 
+from typing import List
+
 class Solution:
     def numSecueBoats(self, people: List[int], limit: int) -> int:
         # Sort the weights of people in ascedning order
@@ -42,8 +44,12 @@ class Solution:
 
         return boats
 
-
 """
 Time Complexity : O(n log(n))
-Space Complexity: O(1)
+Space Complexity: O(n) 
+Note: people.sort() initially uses an algorithm that has O(n) space complexity
 """
+
+s = Solution()
+answer = s.numSecueBoats([2, 1, 3, 4], 4) # 3 botas are required
+print(answer)

@@ -12,6 +12,9 @@ Given an array of integers, return true if the following conditions are fulfille
             a[1]    a[3]    
         a[0]            a[4]
 """
+
+from typing import List
+
 class Solution:
     def validMountainArray(self, A: List[int]) -> bool:
         if (len(A) < 3):
@@ -37,3 +40,11 @@ class Solution:
 Time Complexity : O(n)
 Space Complexity: O(1)
 """
+
+s = Solution();
+
+answer = s.validMountainArray([1, 2, 3, 2, 1])
+print(answer)
+
+answer1 = s.validMountainArray([1, 2, 3, 2, 5])
+print(answer1)

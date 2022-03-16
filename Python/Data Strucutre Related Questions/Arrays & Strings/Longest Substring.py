@@ -5,19 +5,27 @@ Longest Substring without Repeating Characters
 
 Given a string, find the length of the longest substring without repeating characters
 """
+
 class Solution:
-    def longestSubstring(self, string: str) -> int:
-        map = {}
+    def longestSubstring(self, s: str) -> int:
+        # Map to store the characters and the last index the character was found at
         # left = start of the substring
         # right = current position of the substring
         # ans = longest length of the substring so far
-        left, right, ans = 0
-        n = len(string)
+        map = {}
+        left = 0
+        right = 0
+        ans = 0
+        n = len(s)
+
+        # If the String is a single or empty String, return it's length
+        if n <= 1:
+            return n
 
         # loop until reaching the end
         while (left < n and right < n):
             # Set elemnt to current character in the string
-            element = string[right]
+            element = s[right]
             
             # If the element is already in the map
             if (element in map):
@@ -29,9 +37,17 @@ class Solution:
             ans = max(ans, right - left + 1)
             right += 1
 
-            return ans
+        return ans
 
 """
 Time Complexity : O(n)
 Space Complexity: O(n)
 """
+
+s = Solution()
+answer = s.longestSubstring("abcabcbd")
+
+# sub | string
+# Answer would be # of characters in the right subarray (string)
+# Therefore the answer is 5
+print(answer)

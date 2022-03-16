@@ -12,6 +12,9 @@ target: 11
 start : 1
 end   : 3
 """
+
+from typing import List
+
 class Solution:
     def getLeftPosition(self, nums: List[int], target: int):
         left = 0
@@ -53,11 +56,11 @@ class Solution:
         return [left, right]
 
     
-
-
-
-
 """
 Time Complexity : O(log(n))
 Space Complexity: O(1)
 """
+
+s = Solution()
+answer = s.searchRange([1, 2, 2, 3, 4, 4, 4, 4], 4)
+print(answer)
