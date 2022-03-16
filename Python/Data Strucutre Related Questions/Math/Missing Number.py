@@ -13,6 +13,8 @@ Explanation: From 0 ~ 3, we are missing 2
 Algorithm used: Gauss Formula
 """
 
+from typing import List
+
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         """
@@ -30,3 +32,7 @@ class Solution:
 Time Complexity : O(n)
 Space Complexity: O(1)
 """
+
+s = Solution()
+answer = s.missingNumber([3, 0, 1])
+print(answer)

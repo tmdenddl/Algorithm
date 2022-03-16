@@ -41,3 +41,10 @@ class Solution:
 Time Complexity : O(n)
 Space Complexity: O(1)
 """
+
+s = Solution()
+answer = s.judgeCircle("UD")
+print(answer)
+
+answer1 = s.judgeCircle("UULLDR")
+print(answer1)
