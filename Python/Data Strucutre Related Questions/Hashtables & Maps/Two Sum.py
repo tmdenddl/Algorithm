@@ -12,6 +12,8 @@ Input:
 Output: [0, 2]
 """
 
+from typing import List
+
 class Solution:
     def twoSums(self, nums: List[int], target: int) -> List[int]:
         m = {}
@@ -28,8 +30,11 @@ class Solution:
             m[nums[i]] = i
         
 
-        
 """
 Time Complexity : O(n)
 Space Complexity: O(n)
 """
+
+s = Solution()
+answer = s.twoSums([3, 6, 12, 14], 15)
+print(answer) # [0, 2]

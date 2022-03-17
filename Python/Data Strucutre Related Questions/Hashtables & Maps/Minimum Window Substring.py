@@ -12,7 +12,6 @@ P: "ABC"
 What is the smallest substring that contains the letters A, B, C?
 
 Output: "BANC"
-
 """
 
 from collections import deque
@@ -43,8 +42,8 @@ class Solution:
 
         count = 0
         left = 0
-        startIndex = -1
-        minimumLength = float("inf")
+        startIndex = -1 # start index of the answer window 
+        minimumLength = float("inf")  
 
         # Loop over the String
         for right in range(0, lengthString):
@@ -56,8 +55,8 @@ class Solution:
             # increment its value by 1
             hashString[s[right]] += 1
 
-            # If the current character is not in hashPattern,
-            # initialize its key in the hashMap
+            # If the current character is not in hashPattern, initialize its key in the hashMap
+            # This is to create a dummy key to  avoid the error in the next if statment
             if (hashPattern.get(s[right]) is None):
                 hashPattern[s[right]] = 0
 
@@ -66,7 +65,7 @@ class Solution:
             if (hashString.get(s[right]) <= hashPattern.get(s[right])):
                 count += 1
 
-            # Window contains all the charcters in P
+            # Window contains all the charcters in the Pattern
             if (count == lengthPattern):
                 # Move the left pointer to the right only if we still have more occurence of the characters than needed after moving the pointers
                 while (hashString.get(s[left]) > hashPattern.get(s[left])):
@@ -81,15 +80,19 @@ class Solution:
                     minimumLength = windowLength
                     startIndex = left
 
-            if (startIndex == -1):
-                return ""
-            
-            windowSize = startIndex + minimumLength
-            return s[startIndex:windowSize]
-
-
+        # If we still haven't found the pattern within the given string, return empty string
+        if (startIndex == -1):
+            return ""
+        
+        # Return the substring that starts at startIndex with the # of characters that equals to the windowSize
+        windowSize = startIndex + minimumLength
+        return s[startIndex:windowSize]
         
 """
 Time Complexity : O(|S| + |P|)
 Space Complexity: O(|S| + |P|)
 """
+
+s = Solution()
+answer = s.minWindow("ADOBECODEBANC", "ABC")
+print(answer) # "BANC"

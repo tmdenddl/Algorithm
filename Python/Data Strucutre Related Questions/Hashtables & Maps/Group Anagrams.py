@@ -15,6 +15,8 @@ Output:
 ]
 """
 
+from typing import List
+
 class Solution:
     def findHash(self, s: str):
         return ''.join(sorted(s))
@@ -37,11 +39,21 @@ class Solution:
 
         return answers
         
-
-        
 """
 Time Complexity : O(n * m * log(m))
     - n: length of the input array
     - m: length of biggest string in the array
 Space Complexity: O(n)
+"""
+
+s = Solution()
+answer = s.groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"])
+print(answer)
+"""
+Expected Output
+[
+    ["ate", "eat", "tea"],
+    ["nat", "tan"],
+    ["bat"]
+]
 """

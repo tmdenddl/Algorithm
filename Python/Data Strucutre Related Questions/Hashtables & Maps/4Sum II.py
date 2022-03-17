@@ -14,9 +14,11 @@ B: [-2, -1]
 C: [-1, 2]
 D: [0, 2]
 
-Output: 
+Output: 2
 
 """
+
+from typing import List
 
 class Solution:
     def fourSumCount(self, A: List[int], B: List[int], C: List[int], D: List[int]) -> int:
@@ -38,7 +40,7 @@ class Solution:
                 if (x + y not in m):
                     m[x + y] = 0
 
-                m[x+y] += 1
+                m[x + y] += 1
 
         # For each of C[k] and D[l], calculate their sum and count the occurance of the sum
         for k in range(0, sC):
@@ -54,11 +56,12 @@ class Solution:
                     ans += m[target]
 
         return ans
-
-
-
-        
+ 
 """
 Time Complexity : O(n^2)
 Space Complexity: O(n)
 """
+
+s = Solution()
+answer = s.fourSumCount([1, 2], [-2, -1], [-1, 2], [0, 2])
+print(answer) # 2

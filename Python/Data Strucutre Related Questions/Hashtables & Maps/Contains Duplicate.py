@@ -9,7 +9,8 @@ Example:
 Input: [1, 2, 3, 1]
 Output: True
 """
-from Collections import defaultdict
+from collections import defaultdict
+from typing import List
 
 class Solution:
     def twoSums(self, nums: List[int]) -> bool:
@@ -21,9 +22,11 @@ class Solution:
         return False
         
         
-
-        
 """
 Time Complexity : O(n)
 Space Complexity: O(n)
 """
+
+s = Solution()
+answer = s.twoSums([1, 2, 3, 1])
+print(answer) # True

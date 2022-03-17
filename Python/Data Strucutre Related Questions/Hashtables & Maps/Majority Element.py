@@ -10,6 +10,8 @@ Input: [1, 2, 3, 1, 1]
 Output: 1
 """
 
+from typing import List
+
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
         m = {}
@@ -25,9 +27,11 @@ class Solution:
         # If no majority element is found
         return -1
         
-
-        
 """
 Time Complexity : O(n)
 Space Complexity: O(n)
 """
+
+s = Solution()
+answer = s.majorityElement([1, 2, 3, 1, 1])
+print(answer) # 1

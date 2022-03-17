@@ -58,14 +58,27 @@ class LRUCache:
         self.m[key] = value
         self.deq.append(key)
         
-        
-
-
-
-
-
-        
 """
 Time Complexity : O(1)
 Space Complexity: O(n)
-"""
+"""  
+
+s = LRUCache(3)
+s.put(1, 1000)
+s.put(2, 2000)
+s.put(3, 3000)
+
+# [1, 2, 3]
+
+print(s.get(1)) # 1000
+
+# [2, 3, 1]
+
+s.put(4, 4000)
+
+# [3, 1, 4]  Note: 2, which is the least recently used, is removed
+
+print(s.get(2)) # -1
+print(s.get(3)) # 3000
+
+# [1, 4, 3]
