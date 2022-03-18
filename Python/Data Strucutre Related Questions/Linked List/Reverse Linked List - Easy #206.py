@@ -1,44 +1,74 @@
 """
-Add Two Numbers - Medium #002
+Reverse Linked List - Easy #206
 
-Given two non-empty linked lists representing two non-negative integers,
-digits are stored in reverse order and each of the nodes contain a single digit,
-add the two numbers and return it as a new linked list
+Simply reverse the singly linked list, so head becomes the tail and tail becomes the head
 
 Example:
 
 Input: 
-l1: 2 -> 4 -> 3
-l2: 5 -> 6 -> 4
+list: 1 -> 2 -> 3 -> 4 -> 5
 
 Output:
-7 -> 0 -> 8
+1 <- 2 <- 3 <- 4 <- 5
+
+which is same as...
+
+5 -> 4 -> 3 -> 2 -> 1
 """
 
-class Solution:
-    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        ans = ListNode(0)
-        pointer:ListNode = ans
-        carry = 0
-        sum = 0
-        while (l1!=None and l2!=None):
-            sum = carry
-            if (l1 != None):
-                sum += l1.val
-                l1 = l1.next
-            if (l2 != None):
-                sum += l2.val
-                l2 = l2.next
-            carry = int(sum/10)
-            pointer.next = ListNode(sum%10)
-            pointer = pointer.next
-        if (carry > 1):
-            pointer.next = ListNode(carry)
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
-        return ans.next
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        # Basically we need two pointers: previous and next of the current nodes
+        # These pointers will help when reversing the pointers between the nodes
+        node = None # previous pointer
+        
+        # head indicates the current node,
+        # if it's None, we've reached the end of the list
+        while (head is not None):
+            next = head.next # next pointer
+            head.next = node
+            node = head
+            head = next
+
+        # Example after the first iteration
+        """
+        node  head, next
+           |  ||
+        <- 1   3 -> 5 -> 2 -> 4
+        """
+        # Now the head pointer is at the end of the original list which is the new head
+        return node
+
+
 
         
 """
 Time Complexity : O(n)
-Space Complexity: O(n)
+Space Complexity: O(1)
 """
+
+s = Solution()
+
+list_1 = ListNode(1)
+list_2 = ListNode(2)
+list_3 = ListNode(3)
+list_4 = ListNode(4)
+list_5 = ListNode(5)
+
+list_1.next = list_2
+list_2.next = list_3
+list_3.next = list_4
+list_4.next = list_5
+
+answer = s.reverseList(list_1)
+
+# print(answer.val)
+
+while (answer!= None):
+    print(answer.val)
+    answer = answer.next
