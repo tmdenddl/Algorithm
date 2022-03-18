@@ -50,22 +50,26 @@ class LinkedList:
     def insertAtLocation(self, value, index):
         temp = self.head
 
+        # Current # of nodes in the list
         count = self.countList()
 
-        #index is 6, count is 5, valid 
-        #index is 7, count is 5, 
-        if(count+1<index):
+        # index is 6, count is 5, valid 
+        # index is 7, count is 5, invalid (we're missing a node at index 6)
+        if(count + 1 < index):
             return temp
         
         newNode = Node(value)
 
+        # If we're inserting at the head (Remember we're starting at index 1)
         if(index == 1):
             newNode.next = temp
             temp.prev = newNode
             self.head = newNode
             return self.head
         
+        # If we're inserting after the last node
         if(index == count +1):
+            # Loop until reaching the end of the list
             while(temp.next is not None):
                 temp = temp.next
 
@@ -73,16 +77,20 @@ class LinkedList:
             newNode.prev = temp 
             return self.head
         
+        # If we're inserting not at the head or tail of the list,
+        # loop until reaching the node before the desired index
         i = 1
         while(i < index-1):
             temp = temp.next
             i+=1
         
+        # temp.next is the node that was originally at a given index 
         nodeAtTarget = temp.next
 
+        # Reset the pointers so the node before the given index points to the new node,
+        # and the newNode points to the node that was originally at the given index
         newNode.next = nodeAtTarget
         nodeAtTarget.prev = newNode
-
         temp.next = newNode
         newNode.prev = temp
 

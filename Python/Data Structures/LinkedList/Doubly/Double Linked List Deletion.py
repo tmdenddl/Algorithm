@@ -51,13 +51,10 @@ class LinkedList:
             temp = temp.next
         print(linked_list)
 
-    # Function to count nunmber of
-    # elements in the list
-
+    # Function to count nunmber of nodes in the list
     def countList(self):
 
-        # Declare temp pointer to
-        # traverse the list
+        # Declare temp pointer to traverse the list
         temp = self.head
 
         # Variable to store the count
@@ -72,42 +69,47 @@ class LinkedList:
 
     # we will consider that the index begin at 1
     def deleteAtLocation(self, index):
-      temp = self.head
+        temp = self.head
 
-      count = self.countList()
+        # Current # of nodes in the list
+        count = self.countList()
 
-      if(count < index):
-        return temp
+        # We can't delete a node that's out of index of the current list
+        if(count < index):
+            return temp
+        
+        # If index == 1, we're deleting the first node which is the head
+        if(index == 1):
+            temp = temp.next
+            self.head = temp
+            return self.head
 
-      if(index == 1):
-        temp = temp.next
-        self.head = temp
-        return self.head
-
-      if(count == index):
-        while(temp.next is not None and temp.next.next is not None):
-          temp = temp.next
-         # 1 => 2 => 3 => 4
-        temp.next = None
-        return self.head
+        # If index == count, we're deleting the last node which is the tail
+        if(count == index):
+            # Loop until reaching the node before the end of the list
+            while(temp.next is not None and temp.next.next is not None):
+                # Remove the last node, and set the temp's next as None as there's no node after it now
+                temp = temp.next
+                temp.next = None
+                return self.head
       
+        # If we're removing the node at index that's not the first and the last
+        i = 1 
 
-      i = 1 
-      while(i<index-1):
-        temp = temp.next
-        i+=1
-      
+        # Loop until finding the node beforet he desired index
+        while(i < index - 1):
+            temp = temp.next
+            i+=1
+        
+        # Set the node before the desired index to point to the newNode,
+        # and the newNode should point to the node that was originally at the desired index
+        prevNode = temp
+        nodeAtTarget = temp.next
+        nextNode = nodeAtTarget.next
+        nextNode.prev = prevNode
+        prevNode.next = nextNode
 
-      prevNode = temp
-      nodeAtTarget = temp.next
-      nextNode = nodeAtTarget.next
-
-      # 1 => 2 => 3 => 4
-
-      nextNode.prev = prevNode
-      prevNode.next = nextNode
-
-      return self.head
+        return self.head
 
         
 # create an empty list
