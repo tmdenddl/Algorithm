@@ -25,21 +25,32 @@ class ListNode:
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        # This will be the dummy node whose next will be the head of the answer List
         ans = ListNode(0)
+        # This pointer will be used to point to the current digit of the answer List
         pointer:ListNode = ans
+        # carry will hold the overflow, and the sum will hold the current sum
+        # (e.g. 6 + 8 = 14 -> carry = 1 and sum = 4)
         carry = 0
         sum = 0
-        while (l1!=None and l2!=None):
+        # Loop until we have digit left on either of the Lists
+        while (l1!=None or l2!=None):
+            # Add the previous carry into sum
             sum = carry
+            # If we still have digits left on List1, add the value to the sum and move to the next digit(node)
             if (l1 != None):
                 sum += l1.val
                 l1 = l1.next
+            # If we still have digits left on List2, add the value to the sum and move to the next digit(node)
             if (l2 != None):
                 sum += l2.val
                 l2 = l2.next
+            # We only want the first digit of the sum if there's an overflow
             carry = int(sum/10)
+            # Next node will have the curnent sum without the overflow
             pointer.next = ListNode(sum%10)
             pointer = pointer.next
+        # If we still have a carry, we need to add one more digit to the answer List
         if (carry > 1):
             pointer.next = ListNode(carry)
 
