@@ -3,9 +3,9 @@ from collections import defaultdict
 
 class Graph:
     def __init__(self, numberOfNodes):
-        self.numberOfNodes = numberOfNodes+1
-        self.graph = [[0 for x in range(numberOfNodes+1)]
-                      for y in range(numberOfNodes+1)]
+        self.numberOfNodes = numberOfNodes + 1
+        self.graph = [[0 for x in range(numberOfNodes + 1)]
+                      for y in range(numberOfNodes + 1)]
 
     def withInBounds(self, v1, v2):
         return (v1 >= 0 and v1 <= self.numberOfNodes) and (v2 >= 0 and v2 <= self.numberOfNodes)

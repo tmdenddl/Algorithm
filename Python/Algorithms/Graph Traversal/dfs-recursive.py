@@ -1,8 +1,6 @@
-
 from collections import defaultdict
 
 # This class represents a directed graph using adjacency list representation
-
 
 class Graph:
 
@@ -23,7 +21,6 @@ class Graph:
             if v not in visited:
                 self.DFS(v, visited)
 
-
 g = Graph()
 g.setEdge(2, 1)
 g.setEdge(2, 5)
@@ -31,7 +28,5 @@ g.setEdge(5, 6)
 g.setEdge(5, 8)
 g.setEdge(6, 9)
 
-
 visited = set()
-
 g.DFS(2, visited)
