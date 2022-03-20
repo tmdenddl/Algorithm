@@ -20,14 +20,29 @@ Output:
 ]
 """
 
+from typing import List
+
 class Solution:
+    # nums = input array
+    # ans = answer array
+    # cur = current subset we're on
+    # index = index of an element that we're currently working on
     def solution(self, nums, ans, cur, index):
+        # If index is bigger than the length of the array, return
         if (index > len(nums)):
             return
+
+        # Append the current array into answer array
         ans.append(cur[:])
+
+        # Loop from index to the end of the input array
         for i in range (index, len(nums)):
+            # Check to see if the current element is not present in our current array
+            # This is to prevent having duplicates
             if (nums[i] not in cur):
+                # Append the current element into the current subset
                 cur.append(nums[i])
+                # Recursively call the solution method with updated current subnet
                 self.solution(nums, ans, cur, i)
                 cur.pop()
         return
@@ -35,14 +50,13 @@ class Solution:
     def subsets(self, num: List[int]) -> List[List[int]]:
         ans = []
         cur = []
-        self.solution(nums, ans, cur, 0)
+        # Call an external backtracking method that will contain our full logic
+        self.solution(num, ans, cur, 0)
         return ans
     
-
-        
-
-        
 """
 Time Complexity : O()
 Space Complexity: O()
 """
+
+
