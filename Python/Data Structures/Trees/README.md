@@ -18,6 +18,12 @@ A graph whose edges are bi-directional, meaning that they can go both ways
 - Leaf Node: A node with no children nodes
 - Tree Height: The number of edges on the longest downard path between the root and a leaf
 
+The depth of a node is the number of edges from the node to the tree's root node.
+A root node will have a depth of 0.
+
+The height of a node is the number of edges on the longest path from the node to a leaf.
+A leaf node will have a height of 0.
+
 ## m-ary Trees
 Every internal vertex of the tree has no more than m children
 

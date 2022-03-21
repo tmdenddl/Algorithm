@@ -4,7 +4,6 @@ Path Sum - Easy #112
 Given a binary tree and a target, find if a root to leaf path exists
 where summation of all elements on the path equals target
 
-
 Example:
 
 Input: 
@@ -20,31 +19,38 @@ target = 34
 
 Output:
 True
-
 """
+
+class TreeNode:
+  def __init__(self, value):
+    self.left = None
+    self.right = None
+    self.data = value
 
 class Solution:
-    def hasSum(self, root: TreeNode, sum: int, cur: int) -> bool:
-        if (root is None):
-          return False
+  # root = root of the current tree
+  # sum = target number
+  # cur = current sum
+  def hasSum(self, root: TreeNode, sum: int, cur: int) -> bool:
+    # If the current node is None, return False
+    if (root is None):
+      return False
 
-        cur += root.val
-        if (cur == sum and root.left is None and root.right is None):
-          return True
-        
-        return (self.hasSum(node.left, sum, cur) or self.hasSum(node.right, sum, cur))
+    # Add the current node's value to the current sum
+    cur += root.val
 
-    def hasPathSum(self, root: TreeNode, sum: int) -> bool:
-        return self.hasSum(root, sum, 0)
-
-        
+    # If the current sum equals to the target number and we've reached the leaf nodes, return True
+    if (cur == sum and root.left is None and root.right is None):
+      return True
     
-    
+    # Otherwise, search if we can reach the target number on either of the left or the right subtrees
+    return (self.hasSum(root.left, sum, cur) or self.hasSum(root.right, sum, cur))
 
-        
+  def hasPathSum(self, root: TreeNode, sum: int) -> bool:
+    # Call a recursive function to search through every possible subtrees
+    return self.hasSum(root, sum, 0)
 
-        
 """
-Time Complexity : O(N)
-Space Complexity: O(N)
+Time Complexity : O(n)
+Space Complexity: O(n)
 """
