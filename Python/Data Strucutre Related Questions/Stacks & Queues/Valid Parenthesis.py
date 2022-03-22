@@ -13,8 +13,6 @@ Output: True
 
 Input: S = "{[}"
 Output: False
-
-
 """
 
 class Solution:
@@ -31,20 +29,28 @@ class Solution:
             return True 
         return False
 
-    def validParenthesis(slef, s: str) -> bool:
+    def validParenthesis(self, s: str) -> bool:
+        # Initialize a stack
         st = []
+
+        # Start looping over the input string
         for character in s:
-            # If the stack is not empty,
-            # get the character on the top
+            # If the stack is not empty, get the character on the top
             if(len(st) != 0):
                 li = st[-1]
-                # If the character on the top of the stack 
-                # is a open parenthesis of the current character,
-                # remove the top character on the stack and continue with the iteration
+
+                # If the character on the top of the stack is a open parenthesis, 
+                # and if the current character is a closing parenthesis of the same type,
+                # remove the top character on the stack and continue with the iteration.
+                # Note: we don't remove the top character from the stack if the match is invalid
                 if (self.isEqual(li, character)):
                     st.pop()
                     continue
+            # If the two parenthesis are not a match, append the current character to the stack
             st.append(character)
+
+        # By the time we each return statement, if there are elements present in the stack,
+        # given parenthesis were not valid
         return len(st) == 0
             
 

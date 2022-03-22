@@ -47,10 +47,10 @@ class Solution:
         right = self.solution(root.right)
 
         # Actual logic:
-        # maxSide: Check if the current node is the root of the maximum path sum
+        # maxSide: Maximum value that we can get from taking the current node
         #          Find whether the left or right subtree's path sum is greater,
         #          then check if the path sum is greater if we add the current node's value
-        # maxTop: Check if the current node is the center of the maximum path sum
+        # maxTop: Contender with the answer. Maximum between the maxSide and (left + right subtrees + current node)
         #         Check if using only one side is greater, or if using both sides is greater
         maxSide = max(root.val, max(left, right) + root.val)
         maxTop = max(maxSide, left + right + root.val)

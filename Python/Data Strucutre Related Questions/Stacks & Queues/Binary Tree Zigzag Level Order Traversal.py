@@ -26,9 +26,16 @@ Output:
     [20, 9], 
     [15, 7]
 ]
-
 """
+
+from typing import List
 from collections import dequeue
+
+class TreeNode:
+  def __init__(self, value):
+    self.left = None
+    self.right = None
+    self.data = value
 
 class Solution:
     def zigzagOrder(self, root: TreeNode) -> List[List[int]]:
@@ -40,16 +47,16 @@ class Solution:
             return ans
         
         # Initialize dequeue with root added
-        q = collections.deque()
+        q = dequeue()
         q.append(root)
 
         # While the dequeue is not empty
         while(q):
             n = len(q)
             level = []
-            # Iterate over the nodes currently in the dequeue
+            # Iterate over the current level
             for i in range(0, n):
-                # If traversing from right to left
+                # If zigzag is true, we're traversing from right to left
                 if zigzag:
                     # remove the right node from the dequeue
                     # then add it's value to the level array
@@ -85,8 +92,6 @@ class Solution:
             zigzag = not zigzag
 
         return ans
-
-        
         
 """
 Time Complexity : O(n)

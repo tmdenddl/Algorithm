@@ -25,25 +25,36 @@ Output:
     [8, 3, 7],
     [1, 2]
 ]
-
 """
+
+from typing import List
 from collections import dequeue
+
+class TreeNode:
+  def __init__(self, value):
+    self.left = None
+    self.right = None
+    self.data = value
 
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        # Initialize the answer array
         ans = []
 
-        # If root is invalid, return
+        # If root is invalid, return empty array
         if (root is None):
             return ans
         
         # Initialize queue with root added
-        q = deque([root])
+        q = dequeue([root])
 
         # While the queue is not empty
         while(q):
+            # Find the current length of the queue
             n = len(q)
+            # Create a temp array that will hold the current row
             temp = []
+
             # Iterate over the nodes currently in the queue
             for i in range(0, n):
                 # remove the first node in the queue

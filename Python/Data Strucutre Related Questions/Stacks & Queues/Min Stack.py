@@ -8,6 +8,10 @@ pop(x)    : removes the element on top of the stack
 top( )    : get the top element
 getMin( ) : retrieve the minimum element of the stack
 
+Design:
+The stack will be a stack of pairs, each pair will consist of:
+[value, minimum upto this point]
+
 """
 
 class MinStack:
@@ -47,4 +51,6 @@ Time Complexity
     - pop()    : O(1)
     - top()    : O(1)
     - getMin() : O(1)
+
+Space Complexity: O(n)
 """
